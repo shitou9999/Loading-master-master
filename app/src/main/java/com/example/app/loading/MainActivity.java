@@ -1,13 +1,17 @@
 package com.example.app.loading;
 
+import android.content.ComponentCallbacks2;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
-import com.example.app.loading.db.DaoSupportFactory;
-import com.example.app.loading.db.IDaoSupport;
-import com.example.app.loading.db.Person;
 import com.example.app.loading.dialog.AlertDialog;
+
+import java.lang.ref.WeakReference;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,11 +28,6 @@ public class MainActivity extends AppCompatActivity {
             startService(new Intent(this, JobAwakenService.class));
         }*/
 
-        IDaoSupport<Person> daoSupport = DaoSupportFactory.getFactory().getDaoSupport(Person.class);
-        // 插入数据对象
-//        daoSupport.insert(new Person("Darren", 23));
-
-
     }
 
     public void test(View view){
@@ -43,6 +42,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //弹出软件盘网上有
+    }
+
+//       registerComponentCallbacks()
+    //    unregisterComponentCallbacks() 进行解注
+    ComponentCallbacks2 componentCallbacks2=new ComponentCallbacks2() {
+        @Override
+        public void onTrimMemory(int level) {
+
+        }
+
+        @Override
+        public void onConfigurationChanged(Configuration newConfig) {
+
+        }
+
+        @Override
+        public void onLowMemory() {
+
+        }
+    };
+
+
+    private TextView textView;
+
+    static class WeakReferenceHander extends Handler{
+        WeakReference<MainActivity> activityWeakReference;
+
+        public WeakReferenceHander(WeakReference<MainActivity> activityWeakReference) {
+            this.activityWeakReference = activityWeakReference;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+
+
+        }
     }
 
 
