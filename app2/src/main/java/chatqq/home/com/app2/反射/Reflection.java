@@ -11,6 +11,15 @@ import java.lang.reflect.Method;
 public class Reflection {
 
     //    除了getClass()还有两种方式可以获取class对象，一是forName()，另一个则是使用名称.class来代表
+    /*
+    在Java程序中获得Class对象通常有如下三种方式：
+            1.使用Class类的forName(String clazzName)静态方法。该方法需要传入字符串参数，
+                                              该字符串参数的值是某个类的全限定名（必须添加完整包名）。
+
+            2.调用某个类的class属性来获取该类对应的Class对象。
+
+            3.调用某个对象的getClass()方法。该方法是java.lang.Object类中的一个方法。
+    */
 
     /**
      * 得到某个对象的公共属性
@@ -29,7 +38,7 @@ public class Reflection {
     /**
      * 得到某类的静态公共属性
      *
-     * @param className 类名
+     * @param className 类名  必须添加完整包名
      * @param fieldName 属性名
      * @return 该属性对象
      * @throws Exception
@@ -113,6 +122,8 @@ public class Reflection {
     public boolean isInstance(Object obj, Class cls) {
         return cls.isInstance(obj);
     }
+
+
 
     /**
      * 得到数组中的某个元素
