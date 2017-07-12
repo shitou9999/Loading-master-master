@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
 
-
 public class CustomPopupWindow {
     private PopupWindow mPopupWindow;
     private View contentview;
