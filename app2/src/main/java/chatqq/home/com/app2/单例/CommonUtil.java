@@ -4,6 +4,7 @@ import android.content.Context;
 
 /**
  * 基础的单例
+ * 单例对象的类只能允许一个实例存在
  * Created by Administrator on 2017/6/30 0030.
  */
 
