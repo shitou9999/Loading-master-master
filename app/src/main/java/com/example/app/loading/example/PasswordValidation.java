@@ -17,7 +17,7 @@
 package com.example.app.loading.example;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.text.TextUtils;
 
 import com.example.app.loading.avalidations.ValidationExecutor;
 
@@ -38,8 +38,11 @@ public class PasswordValidation extends ValidationExecutor {
 
 		String regex = "^[a-zA-Z][A-Za-z0-9]{7,11}$";
 		boolean result = Pattern.compile(regex).matcher(text).find();
-		if (!result) {
-			Toast.makeText(context, "密码888", Toast.LENGTH_SHORT).show();
+//		if (!result) {
+//			Toast.makeText(context, "密码不正确", Toast.LENGTH_SHORT).show();
+//			return false;
+//		}
+		if (TextUtils.isEmpty(text.toString())){
 			return false;
 		}
 		return true;

@@ -20,6 +20,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -91,7 +92,7 @@ public class EditTextValidator {
 			});
 		}
 
-		setEnabled();
+//		setEnabled();
 
 		return this;
 	}
@@ -122,6 +123,7 @@ public class EditTextValidator {
 			if (!validationModel.getValidationExecutor().doValidate(context, validationModel.getEditText().getText().toString())) {
 
 				// 如果需要做单个EditText验证不通过标记，可以在这里实现
+				Toast.makeText(context.getApplicationContext(), "请填写内容", Toast.LENGTH_SHORT).show();
 
 				return false;// 只要有不通过的直接返回false，不要往下执行了
 			}

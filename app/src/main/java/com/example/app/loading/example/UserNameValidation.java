@@ -17,11 +17,9 @@
 package com.example.app.loading.example;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.text.TextUtils;
 
 import com.example.app.loading.avalidations.ValidationExecutor;
-
-import java.util.regex.Pattern;
 
 
 /**
@@ -36,10 +34,14 @@ public class UserNameValidation extends ValidationExecutor {
 	@Override
 	public boolean doValidate(Context context, String text) {
 
-		String regex = "^[a-zA-Z](?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9_]{7,11}$";
-		boolean result = Pattern.compile(regex).matcher(text).find();
-		if (!result) {
-			Toast.makeText(context, "用户名99999", Toast.LENGTH_SHORT).show();
+//		String regex = "^[a-zA-Z](?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9_]{7,11}$";
+//		boolean result = Pattern.compile(regex).matcher(text).find();
+//		if (!result) {
+//			Toast.makeText(context, "用户名不正确", Toast.LENGTH_SHORT).show();
+//			return false;
+//		}
+
+		if (TextUtils.isEmpty(text.toString())){
 			return false;
 		}
 		return true;
