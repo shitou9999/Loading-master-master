@@ -75,4 +75,17 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:enabled">false</item>
     </style>
+
+<!--解决宽度留白问题：
+android:backgroundDimEnabled：表示页面时候变暗，我们设置false，不变暗
+android:windowBackground：表示背景颜色，我们这种为透明，因为我们给布局文件背景设置了圆角，如果不设置对话框为透明的话，圆角部分会留白
+需要注意的是使用colorAccent兼容低版本，而不是android:colorAccent-->
+    <style name="CustomDialog2" parent="Theme.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">#ffE91E63</item>
+    </style>
+
+
+
 </resources>
